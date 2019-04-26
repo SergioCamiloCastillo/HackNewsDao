@@ -85,19 +85,18 @@ public class NoticiaDaoImpl implements NoticiaDao {
         try {
             registerDriver();
             // abrir la conexion
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sergio", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hacknews", "root", "");
             // consulta select (selecciona el producto con ID especificado)
             try (PreparedStatement ps = conn.prepareStatement(
-                    "select * from uni where id = ?")) {
+                    "select * from noticia where id_noticia = "+id)) {
                 // indicar el ID que buscamos
-                ps.setInt(1, id);
+                //ps.setInt(1, id);
                 // ejecutar la consulta
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
                         // obtener cada una de la columnas y mapearlas a la clase Product
-                        /*product = new Noticia(id,
-                                rs.getString("nombre"),
-                                rs.getDouble("apellido"));*/
+                        noticia = new Noticia(id,rs.getString("titulo"),rs.getString("url"),rs.getString("texto"),rs.getString("fecha"));
+                                
                     }
                 }
             }

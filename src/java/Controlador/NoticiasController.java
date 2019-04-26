@@ -9,7 +9,7 @@ public class NoticiasController {
     public void validarNoticia(String titulo, String url, String texto, String fecha) {
         if (titulo != "" || (titulo != "" && url != "") || (titulo != "" && texto != "")) {
             NoticiaDao noticia = new NoticiaDaoImpl();
-            noticia.insert(new Noticia(titulo, url, texto, fecha));
+            noticia.insert(new Noticia(null,titulo, url, texto, fecha));
         }
 
     }
@@ -19,6 +19,9 @@ public class NoticiasController {
             NoticiaDao noticiaEliminar = new NoticiaDaoImpl();
             noticiaEliminar.delete(idEliminar);
         }
+    }
+    public void verNoticia(){
+        
     }
 
 }

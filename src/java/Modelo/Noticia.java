@@ -9,13 +9,15 @@ public class Noticia {
     private String url;
     private String texto;
     private String fecha;
+    private Integer id;
     
 
-    public Noticia(String titulo, String url, String texto, String fecha) {
+    public Noticia(Integer id,String titulo, String url, String texto, String fecha) {
         this.titulo = titulo;
         this.url = url;
         this.texto = texto;
         this.fecha = fecha;
+        this.id=id;
     }
 
    
@@ -52,6 +54,14 @@ public class Noticia {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     
