@@ -14,7 +14,7 @@
      <body>
         <h1>Crear Noticias</h1>
         <form action="NoticiasServlet.do" method="POST" >
-            <input type="text" name="txtTitulo" id="txtUsuario" placeholder="Coloca titulo" required=""></br></br>
+            <input type="text" name="txtTitulo" id="txtUsuario" placeholder="Coloca titulo" ></br></br>
             <input type="text" name="txtUrl" id="txtUsuario" placeholder="Coloca url" ></br></br>
             <input type="text" name="txtTexto" id="txtUsuario" placeholder="Coloca texto" ></br></br>
 

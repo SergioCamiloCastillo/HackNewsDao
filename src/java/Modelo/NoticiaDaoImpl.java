@@ -15,10 +15,9 @@ import java.sql.Statement;
 public class NoticiaDaoImpl implements NoticiaDao {
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    
 
     private void registerDriver() {
-        try {   
+        try {
             Class.forName(JDBC_DRIVER).newInstance();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             System.err.println("ERROR");
@@ -37,9 +36,9 @@ public class NoticiaDaoImpl implements NoticiaDao {
             //conn=DriverManager.getConnection(DB_URL+DB_NAME+DB_USER+DB_PASS);
             try (Statement stmt = conn.createStatement()) {
                 // enviar el comando insert
-                
+
                 stmt.executeUpdate("INSERT INTO s "
-                    + "VALUES ('" + noticia.getTitulo() + "', '" + noticia.getUrl() + "', '" + noticia.getTexto() + "','"+noticia.getFecha()+"')");
+                        + "VALUES ('" + noticia.getTitulo() + "', '" + noticia.getUrl() + "', '" + noticia.getTexto() + "','" + noticia.getFecha() + "')");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -54,9 +53,6 @@ public class NoticiaDaoImpl implements NoticiaDao {
         }
     }
 
-   
-    
-    
     public void delete(Integer id) {
         Connection conn = null;
         try {
@@ -80,7 +76,6 @@ public class NoticiaDaoImpl implements NoticiaDao {
         }
     }
 
-    
     public Noticia read(Integer id) {
         Connection conn = null;
         Noticia noticia = null;
