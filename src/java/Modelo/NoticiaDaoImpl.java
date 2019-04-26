@@ -14,7 +14,7 @@ import java.sql.Statement;
 
 public class NoticiaDaoImpl implements NoticiaDao {
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
     private void registerDriver() {
         try {
@@ -26,19 +26,20 @@ public class NoticiaDaoImpl implements NoticiaDao {
     }
 
     @Override
+
     public void insert(Noticia noticia) {
         Connection conn = null;
         try {
             registerDriver();
             // abrir la conexion 
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ser", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hacknews", "root", "");
 
             //conn=DriverManager.getConnection(DB_URL+DB_NAME+DB_USER+DB_PASS);
             try (Statement stmt = conn.createStatement()) {
                 // enviar el comando insert
 
-                stmt.executeUpdate("INSERT INTO s "
-                        + "VALUES ('" + noticia.getTitulo() + "', '" + noticia.getUrl() + "', '" + noticia.getTexto() + "','" + noticia.getFecha() + "')");
+                stmt.executeUpdate("INSERT INTO noticia "
+                        + "VALUES (" + null + ",'" + noticia.getTitulo() + "', '" + noticia.getUrl() + "', '" + noticia.getTexto() + "','" + noticia.getFecha() + "')");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
