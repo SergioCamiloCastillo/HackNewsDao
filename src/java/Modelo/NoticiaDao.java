@@ -12,7 +12,7 @@ package Modelo;
 public interface NoticiaDao {
     public void insert(Noticia noticia);
     public void update(Noticia noticia);
-    //public void delete(Integer id);
-    //public Noticia read(Integer id);
+    public void delete(Integer id);
+    public Noticia read(Integer id);
     
 }

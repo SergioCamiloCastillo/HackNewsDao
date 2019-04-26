@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class NoticiaDaoImpl implements NoticiaDao {
+    
 
     String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
@@ -59,10 +60,10 @@ public class NoticiaDaoImpl implements NoticiaDao {
         try {
             registerDriver();
             // abrir la conexion 
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sergio", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hacknews", "root", "");
             try (Statement stmt = conn.createStatement()) {
                 // enviar el comando delete
-                stmt.executeUpdate("delete from uni where id = " + id + ";");
+                stmt.executeUpdate("delete from noticia where id = " + id + ";");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

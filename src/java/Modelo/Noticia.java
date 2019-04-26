@@ -9,6 +9,7 @@ public class Noticia {
     private String url;
     private String texto;
     private String fecha;
+    
 
     public Noticia(String titulo, String url, String texto, String fecha) {
         this.titulo = titulo;
