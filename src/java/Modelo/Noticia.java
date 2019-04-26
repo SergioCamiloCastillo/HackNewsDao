@@ -18,6 +18,8 @@ public class Noticia {
         this.fecha = fecha;
     }
 
+   
+
   
 
     public String getTitulo() {

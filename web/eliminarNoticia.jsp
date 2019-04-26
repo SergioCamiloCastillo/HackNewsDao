@@ -13,7 +13,7 @@
     </head>
     <body>
         <p>Eliminar noticia</p>
-        <form action="NoticiasServlet.do" method="POST">
+        <form action="NoticiasServlet.do" method="GET">
             <input type="text" name="txtEliminarNoticia"  placeholder="Coloque id"></br></br>
             <input type="submit" value="Enviar">
         </form>

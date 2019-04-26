@@ -20,7 +20,6 @@
 
             <input type="submit" value="Enviar">
         </form>
-        <a href="eliminarNoticia.jsp">Eliminar Noticia</a>
         
     </body>
 </html>

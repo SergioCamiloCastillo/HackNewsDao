@@ -13,9 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class NoticiaDaoImpl implements NoticiaDao {
-    
 
-    String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
     private void registerDriver() {
         try {
@@ -27,8 +26,8 @@ public class NoticiaDaoImpl implements NoticiaDao {
     }
 
     @Override
-
-    public void insert(Noticia noticia) {
+    
+   public void insert(Noticia noticia) {
         Connection conn = null;
         try {
             registerDriver();
@@ -55,6 +54,7 @@ public class NoticiaDaoImpl implements NoticiaDao {
         }
     }
 
+
     public void delete(Integer id) {
         Connection conn = null;
         try {
@@ -63,7 +63,7 @@ public class NoticiaDaoImpl implements NoticiaDao {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hacknews", "root", "");
             try (Statement stmt = conn.createStatement()) {
                 // enviar el comando delete
-                stmt.executeUpdate("delete from noticia where id = " + id + ";");
+                stmt.executeUpdate("delete from noticia where id_noticia = " + id + ";");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

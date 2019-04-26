@@ -50,6 +50,11 @@ public class NoticiasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        int idEliminar = Integer.parseInt(request.getParameter("txtEliminarNoticia"));
+
+        NoticiasController ncc = new NoticiasController();
+
+        ncc.validarNoticiaValidar(idEliminar);
     }
 
     /**
@@ -68,14 +73,14 @@ public class NoticiasServlet extends HttpServlet {
             String titulo = request.getParameter("txtTitulo");
             String url = request.getParameter("txtUrl");
             String texto = request.getParameter("txtTexto");
+
             //java.util.Date fecha = new Date();
-            
-            NoticiasController nc=new NoticiasController();
-           Date date = Calendar.getInstance().getTime();  
-                DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
-                String fecha = dateFormat.format(date); 
-            nc.validarNoticia(titulo,url,texto,fecha);
-        }
+            NoticiasController nc = new NoticiasController();
+            Date date = Calendar.getInstance().getTime();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            String fecha = dateFormat.format(date);
+            nc.validarNoticia(titulo, url, texto, fecha);
+                    }
 
     }
 
