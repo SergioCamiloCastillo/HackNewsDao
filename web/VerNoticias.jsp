@@ -21,7 +21,7 @@
 
             NoticiaDao noticia = new NoticiaDaoImpl();
             Noticia p = noticia.read(26);
-            out.println(p);
+            out.println(p.getId()+p.getTitulo()+p.getUrl()+p.getTexto()+p.getFecha());
         %>
     </body>
 </html>
